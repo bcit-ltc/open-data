@@ -1,41 +1,74 @@
-# Website
+# Open Data Portal
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This project is a Docusaurus-based open data portal for learning analytics datasets.
 
-## Installation
+## What this site contains
 
-```bash
-yarn
-```
+- A single homepage at `src/pages/index.tsx`
+- Dataset sections with:
+  - source description
+  - field-level schema details
+  - per-dataset download button
+- Download files served from `static/downloads/`
 
-## Local Development
+## Requirements
 
-```bash
-yarn start
-```
+- Node.js `>=20.0`
+- npm
+- Docker Desktop (optional, for containerized run)
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+## Install dependencies
 
 ```bash
-USE_SSH=true yarn deploy
+npm ci
 ```
 
-Not using SSH:
+## Run locally (dev mode)
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+npm start
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Build static site
+
+```bash
+npm run build
+```
+
+## Serve production build locally
+
+```bash
+npm run serve
+```
+
+## Run with Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+- `http://localhost:8080`
+
+## Dataset downloads
+
+Download buttons point to:
+
+- `/downloads/audiovideoprocessed.csv`
+- `/downloads/contentobjects.csv`
+- `/downloads/discussionsforum.csv`
+- `/downloads/gradeobjects.csv`
+- `/downloads/organizationalunits.csv`
+- `/downloads/quizobjects.csv`
+- `/downloads/releaseconditionsobjects.csv`
+- `/downloads/roledetails.csv`
+
+Replace the placeholder CSV files in `static/downloads/` with your real public datasets when ready.
+
+## Project notes
+
+- Docs and blog plugins are disabled in `docusaurus.config.ts`.
+- Homepage sections currently use anchors:
+  - `/#about`
+  - `/#datasets`

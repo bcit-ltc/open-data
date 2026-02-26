@@ -1,12 +1,22 @@
-FROM node:20-alpine
+## Build stage
+FROM node:24.8.0-alpine3.22 AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package*.json ./
 RUN npm ci
 
-COPY . .
+COPY . /app
+RUN npm run build
 
-EXPOSE 3000
+## Release/production
+FROM nginxinc/nginx-unprivileged:alpine3.22-perl
 
-CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--port", "3000"]
+LABEL maintainer=courseproduction@bcit.ca
+LABEL org.opencontainers.image.source="https://github.com/bcit-ltc/open-data"
+LABEL org.opencontainers.image.description="Open Data Docusaurus site."
+
+COPY conf.d/default.conf /etc/nginx/conf.d/default.conf
+
+WORKDIR /usr/share/nginx/html
+COPY --from=builder /app/build/ ./
