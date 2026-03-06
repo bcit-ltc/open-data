@@ -18,6 +18,7 @@ type DatasetDetail = {
   id: string;
   title: string;
   source: string;
+  downloadUrl: string;
   description: string;
   dataDescription: string[];
   fields: DatasetField[];
@@ -30,6 +31,8 @@ const datasetDetails: DatasetDetail[] = [
     title: 'AudioVideoProcessed',
     source:
       'https://community.d2l.com/brightspace/kb/articles/22812-content-service-data-sets',
+    downloadUrl:
+      'https://community.d2l.com/brightspace/kb/articles/22812-content-service-data-sets',
     description:
       'In the Audio Video Processed Brightspace Data Set, each row represents one completed media processing job. The data set captures events from January 2022 onwards.',
     dataDescription: [
@@ -40,51 +43,51 @@ const datasetDetails: DatasetDetail[] = [
     ],
     fields: [
       {
-        name: 'ContentId',
+        name: 'content_id',
         description:
-          'Unique content identifier. (Type: uniqueidentifier, Size: 16, Key: PK, FK)',
+          'Unique content identifier.',
       },
       {
-        name: 'RevisionId',
+        name: 'revision_id',
         description:
-          'Unique revision identifier. (Type: uniqueidentifier, Size: 16, Key: PK)',
+          'Unique revision identifier.',
       },
       {
-        name: 'RevisionNumber',
+        name: 'revision_number',
         description:
-          'Indicates the version of the media object that this processing job applies to. (Type: int, Size: 4)',
+          'Indicates the version of the media object that this processing job applies to.',
       },
       {
-        name: 'Type',
+        name: 'type',
         description:
-          'Type of content for this revision: Audio or Video. (Type: nvarchar, Size: 5)',
+          'Type of content for this revision: Audio or Video.',
       },
       {
-        name: 'Source',
+        name: 'source',
         description:
-          'Location in Brightspace from which the content was added. Field can be null. (Type: nvarchar, Size: 32)',
+          'Location in Brightspace from which the content was added. Field can be null.',
       },
       {
-        name: 'RevisionSize',
+        name: 'revision_size',
         description:
-          'Size of all resources for this revision in bytes. (Type: bigint, Size: 8)',
+          'Size of all resources for this revision in bytes.',
       },
       {
-        name: 'Duration',
-        description: 'Duration of the revision in seconds. (Type: int, Size: 4)',
+        name: 'duration',
+        description: 'Duration of the revision in seconds.',
       },
       {
-        name: 'RequiredTranscoding',
-        description: 'True if the revision required transcoding. (Type: bit, Size: 1)',
+        name: 'required_transcoding',
+        description: 'True if the revision required transcoding.',
       },
       {
-        name: 'RequiredTranscribing',
-        description: 'True if the revision required transcribing. (Type: bit, Size: 1)',
+        name: 'required_transcribing',
+        description: 'True if the revision required transcribing.',
       },
       {
-        name: 'LastModified',
+        name: 'last_modified',
         description:
-          'Date this revision was last modified (UTC). (Type: datetime2, Size: 8)',
+          'Date this revision was last modified (UTC).',
       },
     ],
   },
@@ -92,6 +95,8 @@ const datasetDetails: DatasetDetail[] = [
     id: 'contentobjects',
     title: 'ContentObjects',
     source:
+      'https://community.d2l.com/brightspace/kb/articles/4713-content-data-sets',
+    downloadUrl:
       'https://community.d2l.com/brightspace/kb/articles/4713-content-data-sets',
     description:
       'The Content Objects Brightspace Data Set returns information about content topics and modules created for your org units.',
@@ -103,120 +108,105 @@ const datasetDetails: DatasetDetail[] = [
     ],
     fields: [
       {
-        name: 'ContentObjectId',
+        name: 'content_object_id',
         description:
-          'Unique identifier of the content. (Type: int, Size: 4, Key: PK)',
+          'Unique identifier of the content.',
       },
       {
-        name: 'OrgUnitId',
-        description: 'Unique org unit identifier. (Type: int, Size: 4, Key: FK)',
+        name: 'org_unit_id',
+        description: 'Unique org unit identifier.',
       },
       {
-        name: 'Title',
-        description: 'Content title. (Type: nvarchar, Size: 150)',
+        name: 'title',
+        description: 'Content title.',
       },
       {
-        name: 'ContentObjectType',
-        description: 'Content object type. (Type: varchar, Size: 6)',
+        name: 'content_object_type',
+        description: 'Content object type.',
       },
       {
-        name: 'CompletionType',
-        description: 'Content completion type. (Type: varchar, Size: 7)',
+        name: 'completion_type',
+        description: 'Content completion type.',
       },
       {
-        name: 'ParentContentObjectId',
-        description: 'Parent content object identifier. (Type: int, Size: 4)',
+        name: 'parent_content_object_id',
+        description: 'Parent content object identifier.',
       },
       {
-        name: 'Location',
+        name: 'location',
         description:
-          'Location of the content asset. Field can be null. (Type: nvarchar, Size: 1024)',
+          'Location of the content asset. Field can be null.',
       },
       {
-        name: 'StartDate',
+        name: 'start_date',
         description:
-          'Content availability start date (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Content availability start date (UTC). Field can be null.',
       },
       {
-        name: 'EndDate',
+        name: 'end_date',
         description:
-          'Content availability end date (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Content availability end date (UTC). Field can be null.',
       },
       {
-        name: 'DueDate',
+        name: 'due_date',
         description:
-          'Content availability due date (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Content availability due date (UTC). Field can be null.',
       },
       {
-        name: 'ObjectId1',
+        name: 'object_id_1',
         description:
-          'Quick link Object ID for the associated tool. Maps to DropboxId, QuizId, ChecklistId, SurveyId, ChatId, Self-AssessmentId. For Discussions, this field is used if a Forum is quicklinked. Field can be null. (Type: int, Size: 4)',
+          'Quick link Object ID for the associated tool. Maps to dropbox_id, quiz_id, checklist_id, survey_id, chat_id, self_assessment_id. For Discussions, this field is used if a forum is quicklinked. Field can be null.',
       },
       {
-        name: 'ObjectId2',
+        name: 'object_id_2',
         description:
-          'Quick link Object ID, only used for the Discussion tool if a Topic is quicklinked. Field can be null. (Type: int, Size: 4)',
+          'Quick link Object ID, only used for the Discussion tool if a Topic is quicklinked. Field can be null.',
       },
       {
-        name: 'ObjectId3',
+        name: 'object_id_3',
         description:
-          'Quick link Object ID, only used for the Discussion tool if a Thread is quicklinked. Field can be null. (Type: int, Size: 4)',
+          'Quick link Object ID, only used for the Discussion tool if a Thread is quicklinked. Field can be null.',
       },
       {
-        name: 'LastModified',
-        description: 'Date the content was last modified (UTC). (Type: datetime2, Size: 8)',
+        name: 'last_modified',
+        description: 'Date the content was last modified (UTC).',
       },
       {
-        name: 'IsDeleted',
-        description: 'Content is deleted. (Type: bit, Size: 1)',
+        name: 'is_deleted',
+        description: 'Content is deleted.',
       },
       {
-        name: 'SortOrder',
-        description: 'Display sort order used for the content objects. (Type: int, Size: 4)',
+        name: 'sort_order',
+        description: 'Display sort order used for the content objects.',
       },
       {
-        name: 'Depth',
+        name: 'depth',
         description:
-          'Indicates the number of nested hierarchical levels in the discussion post. (Type: int, Size: 4)',
+          'Indicates the number of nested hierarchical levels in the discussion post.',
       },
       {
-        name: 'ToolId',
+        name: 'tool_id',
         description:
-          'Unique identifier for the tool. Field can be null. (Type: int, Size: 4, Key: FK)',
+          'Unique identifier for the tool. Field can be null.',
       },
       {
-        name: 'IsHidden',
-        description: 'Content object has not been published yet. (Type: bit, Size: 1)',
+        name: 'is_hidden',
+        description: 'Content object has not been published yet.',
       },
       {
-        name: 'ResultId',
+        name: 'result_id',
         description:
-          'Release Condition unique result identifier. Field can be null. (Type: int, Size: 4)',
+          'Release Condition unique result identifier. Field can be null.',
       },
       {
-        name: 'DeletedDate',
+        name: 'deleted_date',
         description:
-          'Date when the content object was deleted (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Date when the content object was deleted (UTC). Field can be null.',
       },
       {
-        name: 'CreatedBy',
+        name: 'ai_utilization',
         description:
-          'User who created the content object. Field can be null. (Type: int, Size: 4)',
-      },
-      {
-        name: 'LastModifiedBy',
-        description:
-          'User who last modified the content object. Field can be null. (Type: int, Size: 4)',
-      },
-      {
-        name: 'DeletedBy',
-        description:
-          'User who deleted the content object. Field can be null. (Type: int, Size: 4)',
-      },
-      {
-        name: 'AIUtilization',
-        description:
-          'Indicates whether D2L Lumi (Brightspace AI) capabilities were used and the level of AI involvement: 0 No AI; 1 Generated by AI and reviewed by a human; 2 Generated by AI and edited by a human; 3 Assisted or uplifted by AI; 4 Generated by AI but not yet reviewed by a human. (Type: int, Size: 4)',
+          'Indicates whether D2L Lumi (Brightspace AI) capabilities were used and the level of AI involvement: 0 No AI; 1 Generated by AI and reviewed by a human; 2 Generated by AI and edited by a human; 3 Assisted or uplifted by AI; 4 Generated by AI but not yet reviewed by a human.',
       },
     ],
     droppedFields: [
@@ -242,94 +232,99 @@ const datasetDetails: DatasetDetail[] = [
     title: 'DiscussionsForum',
     source:
       'https://community.d2l.com/brightspace/kb/articles/4525-discussions-data-sets',
+    downloadUrl:
+      'https://community.d2l.com/brightspace/kb/articles/4525-discussions-data-sets',
     description:
       'The Discussion Forums Brightspace Data Set returns discussion forums. Results are ordered from newest to oldest.',
     dataDescription: [
       'Forum/topic/post identifiers and hierarchy links.',
       'Author and org unit references.',
       'Creation/update metadata and status indicators.',
+      'Deidentified for open data release with direct user identifiers removed.',
     ],
     fields: [
       {
-        name: 'OrgUnitId',
-        description: 'Unique org unit identifier. (Type: int, Size: 4, Key: FK)',
+        name: 'org_unit_id',
+        description: 'Unique org unit identifier.',
       },
       {
-        name: 'ForumId',
-        description: 'Unique forum identifier. (Type: bigint, Size: 8, Key: PK)',
+        name: 'forum_id',
+        description: 'Unique forum identifier.',
       },
       {
-        name: 'Name',
-        description: 'Name of the discussion forum. (Type: nvarchar, Size: 400)',
+        name: 'name',
+        description: 'Name of the discussion forum.',
       },
       {
-        name: 'Description',
+        name: 'description',
         description:
-          'Description of the discussion forum. Field can be null. (Type: nvarchar, Size: 1000)',
+          'Description of the discussion forum. Field can be null.',
       },
       {
-        name: 'MustPostToParticipate',
+        name: 'must_post_to_participate',
         description:
-          'Indicates that a user must post in the discussion forum in order to participate in any discussion threads. (Type: bit, Size: 1)',
+          'Indicates that a user must post in the discussion forum in order to participate in any discussion threads.',
       },
       {
-        name: 'AllowAnon',
+        name: 'allow_anon',
         description:
-          'Indicates whether there is anonymous posting permitted for the discussion forum. (Type: bit, Size: 1)',
+          'Indicates whether there is anonymous posting permitted for the discussion forum.',
       },
       {
-        name: 'IsHidden',
+        name: 'is_hidden',
         description:
-          'Indicates whether the discussion forum is hidden. (Type: bit, Size: 1)',
+          'Indicates whether the discussion forum is hidden.',
       },
       {
-        name: 'RequiresApproval',
+        name: 'requires_approval',
         description:
-          'Indicates that the discussion forum requires approval from a moderator before contributions to the forum are posted. (Type: bit, Size: 1)',
+          'Indicates that the discussion forum requires approval from a moderator before contributions to the forum are posted.',
       },
       {
-        name: 'SortOrder',
-        description: 'Display sort order used for the content objects. (Type: int, Size: 4)',
+        name: 'sort_order',
+        description: 'Display sort order used for the content objects.',
       },
       {
-        name: 'IsDeleted',
+        name: 'is_deleted',
         description:
-          'Indicates if the discussion forum is deleted. Field can be null. (Type: bit, Size: 1)',
+          'Indicates if the discussion forum is deleted. Field can be null.',
       },
       {
-        name: 'DeletedDate',
+        name: 'deleted_date',
         description:
-          'Date when the discussion forum was deleted (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Date when the discussion forum was deleted (UTC). Field can be null.',
       },
       {
-        name: 'DeletedByUserId',
+        name: 'result_id',
         description:
-          'User who deleted the discussion forum. Field can be null. (Type: int, Size: 4, Key: FK)',
+          'Unique release condition result identifier. Field can be null.',
       },
       {
-        name: 'ResultId',
+        name: 'start_date',
         description:
-          'Unique release condition result identifier. Field can be null. (Type: int, Size: 4, Key: FK)',
+          'First date when learners can post to topics in the forum (UTC). Field can be null.',
       },
       {
-        name: 'StartDate',
+        name: 'start_date_availability_type',
         description:
-          'First date when learners can post to topics in the forum (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Before the start_date, this type determines whether learners can view or access discussion topics within the forum. Field can be null.',
       },
       {
-        name: 'StartDateAvailabilityType',
+        name: 'end_date',
         description:
-          'Before the StartDate, this type determines whether learners can view or access discussion topics within the forum. Field can be null. (Type: smallint, Size: 2)',
+          'Last date when learners can post to topics in the forum (UTC).',
       },
       {
-        name: 'EndDate',
+        name: 'end_date_availability_type',
         description:
-          'Last date when learners can post to topics in the forum (UTC). (Type: datetime2, Size: 8)',
+          'After the end_date, this type determines whether learners can view or access discussion topics within the forum. Field can be null.',
       },
+    ],
+    droppedFields: [
       {
-        name: 'EndDateAvailabilityType',
-        description:
-          'After the EndDate, this type determines whether learners can view or access discussion topics within the forum. Field can be null. (Type: smallint, Size: 2)',
+        name: 'deleted_by_user_id',
+        reason:
+          'Removed during deidentification because it stores the user identifier of the person who deleted the forum.',
       },
     ],
   },
@@ -337,149 +332,153 @@ const datasetDetails: DatasetDetail[] = [
     id: 'gradeobjects',
     title: 'GradeObjects',
     source: 'https://community.d2l.com/brightspace/kb/articles/4527-grades-data-sets',
+    downloadUrl: 'https://community.d2l.com/brightspace/kb/articles/4527-grades-data-sets',
     description:
       'The Grade Objects Brightspace Data Set returns a list of the grade objects created for your org units. The data set returns a NULL grade scheme value when the grade item is using the default scheme.',
     dataDescription: [
       'Grade object identifiers and org unit linkage.',
       'Grade item names, categories, and weighting rules.',
       'Points/score settings and grading lifecycle metadata.',
+      'Deidentified for open data release with direct user identifiers removed.',
     ],
     fields: [
       {
-        name: 'GradeObjectId',
-        description: 'Unique grade object identifier. (Type: int, Size: 4, Key: PK)',
+        name: 'grade_object_id',
+        description: 'Unique grade object identifier.',
       },
       {
-        name: 'OrgUnitId',
-        description: 'Unique org unit identifier. (Type: int, Size: 4, Key: FK)',
+        name: 'org_unit_id',
+        description: 'Unique org unit identifier.',
       },
       {
-        name: 'ParentGradeObjectId',
+        name: 'parent_grade_object_id',
         description:
-          'Parent grade object identifier. Note: Categories are considered parent grade objects and can be resolved by joining on this field. Field can be null. (Type: int, Size: 4, Key: FK)',
+          'Parent grade object identifier. Note: Categories are considered parent grade objects and can be resolved by joining on this field. Field can be null.',
       },
       {
-        name: 'Name',
-        description: 'Grade object name. (Type: nvarchar, Size: 128)',
+        name: 'name',
+        description: 'Grade object name.',
       },
       {
-        name: 'TypeName',
-        description: 'Grade object type name. (Type: varchar, Size: 50)',
+        name: 'type_name',
+        description: 'Grade object type name.',
       },
       {
-        name: 'StartDate',
+        name: 'start_date',
         description:
-          'Start date for the grade object (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Start date for the grade object (UTC). Field can be null.',
       },
       {
-        name: 'EndDate',
+        name: 'end_date',
         description:
-          'End date for the grade object (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'End date for the grade object (UTC). Field can be null.',
       },
       {
-        name: 'IsAutoPointed',
-        description: 'Is the grade object automatically pointed. (Type: bit, Size: 1)',
+        name: 'is_auto_pointed',
+        description: 'Is the grade object automatically pointed.',
       },
       {
-        name: 'IsFormula',
-        description: 'Is a formula associated with the grade object. (Type: bit, Size: 1)',
+        name: 'is_formula',
+        description: 'Is a formula associated with the grade object.',
       },
       {
-        name: 'IsBonus',
-        description: 'Is bonus grade. (Type: bit, Size: 1)',
+        name: 'is_bonus',
+        description: 'Is bonus grade.',
       },
       {
-        name: 'MaxPoints',
-        description: 'Maximum points achievable in this grade. (Type: decimal, Size: 19, 9)',
+        name: 'max_points',
+        description: 'Maximum points achievable in this grade.',
       },
       {
-        name: 'CanExceedMaxGrade',
-        description: 'Can user get more than maximum points. (Type: bit, Size: 1)',
+        name: 'can_exceed_max_grade',
+        description: 'Can user get more than maximum points.',
       },
       {
-        name: 'ExcludeFromFinalGradeCalc',
-        description: 'Is grade excluded from final grade calculation. (Type: bit, Size: 1)',
+        name: 'exclude_from_final_grade_calc',
+        description: 'Is grade excluded from final grade calculation.',
       },
       {
-        name: 'GradeSchemeId',
+        name: 'grade_scheme_id',
         description:
-          'Unique grade scheme identifier. Null when grade item uses the default scheme. Field can be null. (Type: bigint, Size: 8)',
+          'Unique grade scheme identifier. Null when grade item uses the default scheme. Field can be null.',
       },
       {
-        name: 'Weight',
-        description: 'Weight associated with the grade. Field can be null. (Type: decimal, Size: 19, 9)',
+        name: 'weight',
+        description: 'Weight associated with the grade. Field can be null.',
       },
       {
-        name: 'NumLowestGradesToDrop',
-        description: 'Drop number of lowest grades from the calculated grade. (Type: int, Size: 4)',
+        name: 'num_lowest_grades_to_drop',
+        description: 'Drop number of lowest grades from the calculated grade.',
       },
       {
-        name: 'NumHighestGradesToDrop',
-        description: 'Drop number of highest grades from the calculated grade. (Type: int, Size: 4)',
+        name: 'num_highest_grades_to_drop',
+        description: 'Drop number of highest grades from the calculated grade.',
       },
       {
-        name: 'WeightDistributionType',
-        description: 'Grade weight distribution within category. Field can be null. (Type: varchar, Size: 8)',
+        name: 'weight_distribution_type',
+        description: 'Grade weight distribution within category. Field can be null.',
       },
       {
-        name: 'CreatedDate',
+        name: 'created_date',
         description:
-          'Date the grade was created (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Date the grade was created (UTC). Field can be null.',
       },
       {
-        name: 'ToolName',
-        description: 'Tool associated with the object. Field can be null. (Type: nvarchar, Size: 50)',
+        name: 'tool_name',
+        description: 'Tool associated with the object. Field can be null.',
       },
       {
-        name: 'AssociatedToolItemId',
+        name: 'associated_tool_item_id',
         description:
-          'Unique activity ID associated with the grade object (Dropbox ID, Quiz ID, Discussion ID). Field can be null. (Type: bigint, Size: 8)',
+          'Unique activity ID associated with the grade object (Dropbox ID, Quiz ID, Discussion ID). Field can be null.',
       },
       {
-        name: 'LastModified',
-        description: 'Last time the grade was modified (UTC). (Type: datetime2, Size: 8)',
+        name: 'last_modified',
+        description: 'Last time the grade was modified (UTC).',
       },
       {
-        name: 'ShortName',
+        name: 'short_name',
         description:
-          'The item or category short name as per the corresponding field in Brightspace. Field can be null. (Type: nvarchar, Size: 128)',
+          'The item or category short name as per the corresponding field in Brightspace. Field can be null.',
       },
       {
-        name: 'GradeObjectTypeId',
+        name: 'grade_object_type_id',
         description:
-          'ID of the grade object type. Values: Numeric=1, Pass/Fail=2, Select box=3, Text=4, Calculated=5, Formula=6, Final Calculated=7, Final Adjusted=8, Category=9. (Type: int, Size: 4)',
+          'ID of the grade object type. Values: Numeric=1, Pass/Fail=2, Select box=3, Text=4, Calculated=5, Formula=6, Final Calculated=7, Final Adjusted=8, Category=9.',
       },
       {
-        name: 'SortOrder',
-        description: 'Specified sort order of grade objects. (Type: int, Size: 4)',
+        name: 'sort_order',
+        description: 'Specified sort order of grade objects.',
       },
       {
-        name: 'IsDeleted',
-        description: 'Indicates if the grade object is deleted. (Type: bit, Size: 1)',
+        name: 'is_deleted',
+        description: 'Indicates if the grade object is deleted.',
       },
       {
-        name: 'DeletedDate',
+        name: 'deleted_date',
         description:
-          'Date the grade object was soft deleted. Field can be null. (Type: datetime2, Size: 8)',
+          'Date the grade object was soft deleted. Field can be null.',
       },
       {
-        name: 'DeletedByUserId',
+        name: 'result_id',
         description:
-          'ID of the user who deleted the grade object. Field can be null. (Type: int, Size: 4, Key: FK)',
+          'Unique release condition result identifier. Field can be null.',
       },
       {
-        name: 'ResultId',
+        name: 'tool_id',
         description:
-          'Unique release condition result identifier. Field can be null. (Type: int, Size: 4, Key: FK)',
+          'Unique identifier of the tool associated with the object. Field can be null.',
       },
       {
-        name: 'ToolId',
-        description:
-          'Unique identifier of the tool associated with the object. Field can be null. (Type: int, Size: 4)',
+        name: 'version',
+        description: 'Version number of this grade object.',
       },
+    ],
+    droppedFields: [
       {
-        name: 'Version',
-        description: 'Version number of this grade object. (Type: int, Size: 4)',
+        name: 'deleted_by_user_id',
+        reason:
+          'Removed during deidentification because it stores the user identifier of the person who deleted the grade object.',
       },
     ],
   },
@@ -488,75 +487,77 @@ const datasetDetails: DatasetDetail[] = [
     title: 'OrganizationalUnits',
     source:
       'https://community.d2l.com/brightspace/kb/articles/4529-organizational-units-data-sets',
+    downloadUrl:
+      'https://community.d2l.com/brightspace/kb/articles/4529-organizational-units-data-sets',
     description:
-      'The Organizational Units Brightspace Data Set returns details about all org units within your organization. Note: Backfill of historical IsDeleted, DeletedDate, and RecycledDate values is determined by the date/time values in the OrgUnit audit log.',
+      'The Organizational Units Brightspace Data Set returns details about all org units within your organization. Note: Backfill of historical is_deleted, deleted_date, and recycled_date values is determined by the date/time values in the org_unit audit log.',
     dataDescription: [
-      'Core org unit fields such as OrgUnitId, Type, Name, Code, and IsActive.',
-      'Availability and lifecycle dates (StartDate, EndDate, DeletedDate, RecycledDate).',
+      'Core org unit fields such as org_unit_id, type, name, code, and is_active.',
+      'Availability and lifecycle dates (start_date, end_date, deleted_date, recycled_date).',
       'Hierarchy mappings including ancestor/descendant/parent relationships.',
     ],
     fields: [
       {
-        name: 'OrgUnitId',
-        description: 'Unique org unit identifier. (Type: int, Size: 4, Key: PK)',
+        name: 'org_unit_id',
+        description: 'Unique org unit identifier.',
       },
       {
-        name: 'Organization',
-        description: 'Organization name. (Type: nvarchar, Size: 50)',
+        name: 'organization',
+        description: 'Organization name.',
       },
       {
-        name: 'Type',
+        name: 'type',
         description:
-          'Org unit type. For example: Group, Section, Semester, Department, etc. (Type: nvarchar, Size: 50)',
+          'Org unit type. For example: Group, Section, Semester, Department, etc.',
       },
       {
-        name: 'Name',
-        description: 'Org unit name. Field can be null. (Type: nvarchar, Size: 128)',
+        name: 'name',
+        description: 'Org unit name. Field can be null.',
       },
       {
-        name: 'Code',
-        description: 'Org unit code. Field can be null. (Type: nvarchar, Size: 50)',
+        name: 'code',
+        description: 'Org unit code. Field can be null.',
       },
       {
-        name: 'StartDate',
+        name: 'start_date',
         description:
-          'Availability start date (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Availability start date (UTC). Field can be null.',
       },
       {
-        name: 'EndDate',
+        name: 'end_date',
         description:
-          'Availability end date (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Availability end date (UTC). Field can be null.',
       },
       {
-        name: 'IsActive',
-        description: 'Is the org unit active. (Type: bit, Size: 1)',
+        name: 'is_active',
+        description: 'Is the org unit active.',
       },
       {
-        name: 'CreatedDate',
-        description: 'Org unit create date. (Type: datetime2, Size: 8)',
+        name: 'created_date',
+        description: 'Org unit create date.',
       },
       {
-        name: 'IsDeleted',
+        name: 'is_deleted',
         description:
-          'Indicates whether the org unit is deleted (soft deleted or recycled). Soft deleted means the org unit was deleted from the application but remains in the database. Recycled means it remains in recycle bin until permanent removal. Field can be null. (Type: bit, Size: 1)',
+          'Indicates whether the org unit is deleted (soft deleted or recycled). Soft deleted means the org unit was deleted from the application but remains in the database. Recycled means it remains in recycle bin until permanent removal. Field can be null.',
       },
       {
-        name: 'DeletedDate',
+        name: 'deleted_date',
         description:
-          'Date the org unit was soft deleted. Field can be null. (Type: datetime2, Size: 8)',
+          'Date the org unit was soft deleted. Field can be null.',
       },
       {
-        name: 'RecycledDate',
+        name: 'recycled_date',
         description:
-          'Date the org unit was recycled. Field can be null. (Type: datetime2, Size: 8)',
+          'Date the org unit was recycled. Field can be null.',
       },
       {
-        name: 'Version',
-        description: 'Indicates the version of the content in the row. (Type: bigint, Size: 8)',
+        name: 'version',
+        description: 'Indicates the version of the content in the row.',
       },
       {
-        name: 'OrgUnitTypeId',
-        description: 'Identifier for the org unit type. (Type: int, Size: 4)',
+        name: 'org_unit_type_id',
+        description: 'Identifier for the org unit type.',
       },
     ],
   },
@@ -564,187 +565,191 @@ const datasetDetails: DatasetDetail[] = [
     id: 'quizobjects',
     title: 'QuizObjects',
     source: 'https://community.d2l.com/brightspace/kb/articles/4532-quizzes-data-sets',
+    downloadUrl: 'https://community.d2l.com/brightspace/kb/articles/4532-quizzes-data-sets',
     description:
       'The Quiz Objects Brightspace Data Set returns information about the settings and properties of a quiz.',
     dataDescription: [
       'Quiz object configuration (name, dates, availability, time limits).',
       'Attempt-level records including score, completion time, and due context.',
       'Question and response-level data for evaluation and analysis.',
+      'Deidentified for open data release with direct user identifiers removed.',
     ],
     fields: [
       {
-        name: 'QuizId',
-        description: 'Unique quiz identifier. (Type: bigint, Size: 8, Key: PK)',
+        name: 'quiz_id',
+        description: 'Unique quiz identifier.',
       },
       {
-        name: 'QuizName',
-        description: 'Quiz name. (Type: nvarchar, Size: 256)',
+        name: 'quiz_name',
+        description: 'Quiz name.',
       },
       {
-        name: 'QuizDescription',
-        description: 'Description of the quiz. Field can be null. (Type: nvarchar, Size: 1000)',
+        name: 'quiz_description',
+        description: 'Description of the quiz. Field can be null.',
       },
       {
-        name: 'QuizCategory',
+        name: 'quiz_category',
         description:
-          'Name of category quiz is assigned to. Field can be null. (Type: nvarchar, Size: 256)',
+          'Name of category quiz is assigned to. Field can be null.',
       },
       {
-        name: 'IsActive',
-        description: 'Indicates if the quiz is active. (Type: bit, Size: 1)',
+        name: 'is_active',
+        description: 'Indicates if the quiz is active.',
       },
       {
-        name: 'OrgUnitId',
+        name: 'org_unit_id',
         description:
-          'Org unit identifier associated with the quiz object. (Type: int, Size: 4, Key: FK)',
+          'Org unit identifier associated with the quiz object.',
       },
       {
-        name: 'StartDate',
+        name: 'start_date',
         description:
-          'First time the quiz is visible. Field can be null. (Type: datetime2, Size: 8)',
+          'First time the quiz is visible. Field can be null.',
       },
       {
-        name: 'EndDate',
+        name: 'end_date',
         description:
-          'Last date the quiz is visible. Field can be null. (Type: datetime2, Size: 8)',
+          'Last date the quiz is visible. Field can be null.',
       },
       {
-        name: 'DueDate',
-        description: 'Date the quiz is due (UTC). Field can be null. (Type: datetime2, Size: 8)',
+        name: 'due_date',
+        description: 'Date the quiz is due (UTC). Field can be null.',
       },
       {
-        name: 'CreationDate',
-        description: 'Date the quiz was created (UTC). (Type: datetime2, Size: 8)',
+        name: 'creation_date',
+        description: 'Date the quiz was created (UTC).',
       },
       {
-        name: 'CreatedBy',
+        name: 'last_modified',
+        description: 'Date when the quiz was last modified (UTC).',
+      },
+      {
+        name: 'grade_object_id',
         description:
-          'Id of the user who created the quiz. Field can be null. (Type: bigint, Size: 8, Key: FK)',
+          'Grade object identifier associated with the quiz. Field can be null.',
       },
       {
-        name: 'LastModified',
-        description: 'Date when the quiz was last modified (UTC). (Type: datetime2, Size: 8)',
-      },
-      {
-        name: 'LastModifiedBy',
+        name: 'overall_score_calculation',
         description:
-          'Id of the user who last modified the quiz. Field can be null. (Type: bigint, Size: 8, Key: FK)',
+          'Quiz score calculation method (Highest Attempt, Lowest Attempt, Average of all attempts, First Attempt, Last Attempt). Field can be null.',
       },
       {
-        name: 'GradeObjectId',
+        name: 'quiz_score_denominator',
+        description: 'Denominator for the quiz score.',
+      },
+      {
+        name: 'has_password',
         description:
-          'Grade object identifier associated with the quiz. Field can be null. (Type: bigint, Size: 8, Key: FK)',
+          'Indicates if a password is required to access this quiz. Field can be null.',
       },
       {
-        name: 'OverallScoreCalculation',
+        name: 'ip_restricted',
         description:
-          'Quiz score calculation method (Highest Attempt, Lowest Attempt, Average of all attempts, First Attempt, Last Attempt). Field can be null. (Type: varchar, Size: 23)',
+          'Indicates if this quiz is available only to certain IP Addresses. Field can be null.',
       },
       {
-        name: 'QuizScoreDenominator',
-        description: 'Denominator for the quiz score. (Type: decimal, Size: 19, 9)',
+        name: 'time_limit',
+        description: 'Time limit for the quiz in minutes.',
       },
       {
-        name: 'HasPassword',
+        name: 'time_limit_enforced',
+        description: 'Indicates if the time limit assigned to the quiz is enforced.',
+      },
+      {
+        name: 'attempts_allowed',
         description:
-          'Indicates if a password is required to access this quiz. Field can be null. (Type: bit, Size: 1)',
+          'Number of times learners are permitted to attempt the quiz. Null indicates unlimited attempts.',
       },
       {
-        name: 'IPRestricted',
+        name: 'prevent_moving_backwards',
         description:
-          'Indicates if this quiz is available only to certain IP Addresses. Field can be null. (Type: bit, Size: 1)',
+          'Indicates if learners are permitted to move to previous pages in the quiz.',
       },
       {
-        name: 'TimeLimit',
-        description: 'Time limit for the quiz in minutes. (Type: int, Size: 4)',
+        name: 'allow_hints',
+        description: 'Indicates that there are hints allowed for the quiz.',
       },
       {
-        name: 'TimeLimitEnforced',
-        description: 'Indicates if the time limit assigned to the quiz is enforced. (Type: bit, Size: 1)',
+        name: 'disable_pager_access',
+        description: 'Indicates that learners cannot access the pager functionality.',
       },
       {
-        name: 'AttemptsAllowed',
+        name: 'display_in_calendar',
         description:
-          'Number of times learners are permitted to attempt the quiz. Null indicates unlimited attempts. (Type: int, Size: 4)',
+          'Indicates if the quiz is displayed in the Calendar. Field can be null.',
       },
       {
-        name: 'PreventMovingBackwards',
+        name: 'is_attempt_rldb',
         description:
-          'Indicates if learners are permitted to move to previous pages in the quiz. (Type: bit, Size: 1)',
+          'Indicates if Respondus LockDown Browser is required to attempt this quiz.',
       },
       {
-        name: 'AllowHints',
-        description: 'Indicates that there are hints allowed for the quiz. (Type: bit, Size: 1)',
-      },
-      {
-        name: 'NotificationEmail',
+        name: 'is_subview_rldb',
         description:
-          'Indicates that there is a notification email for this quiz if present. Field can be null. (Type: nvarchar, Size: 1000)',
+          'Indicates if Respondus LockDown Browser is required to see quiz results (submission view).',
       },
       {
-        name: 'DisablePagerAccess',
-        description: 'Indicates that learners cannot access the pager functionality. (Type: bit, Size: 1)',
+        name: 'sort_order',
+        description: 'Display sort order for quizzes (when not alphabetical).',
       },
       {
-        name: 'DisplayInCalendar',
+        name: 'category_id',
         description:
-          'Indicates if the quiz is displayed in the Calendar. Field can be null. (Type: bit, Size: 1)',
+          'Unique category identifier for the quiz. Field can be null.',
       },
       {
-        name: 'IsAttemptRldb',
+        name: 'result_id',
         description:
-          'Indicates if Respondus LockDown Browser is required to attempt this quiz. (Type: bit, Size: 1)',
+          'Unique release condition result identifier. Field can be null.',
       },
       {
-        name: 'IsSubviewRldb',
+        name: 'is_retake_incorrect_only',
+        description: 'Indicates if the quiz allows Retake Incorrect Only.',
+      },
+      {
+        name: 'paging_type_id',
         description:
-          'Indicates if Respondus LockDown Browser is required to see quiz results (submission view). (Type: bit, Size: 1)',
+          'Exposes page break information. Values: NULL=Classic Quiz Creation paging, 0=All questions on one page, 1=One question per page, 2=Page breaks after each section, 3=5 questions per page, 4=10 questions per page. Field can be null.',
       },
       {
-        name: 'SortOrder',
-        description: 'Display sort order for quizzes (when not alphabetical). (Type: int, Size: 4)',
-      },
-      {
-        name: 'CategoryId',
+        name: 'is_synchronous',
         description:
-          'Unique category identifier for the quiz. Field can be null. (Type: bigint, Size: 8)',
+          'Indicates that a quiz is synchronous. A synchronous quiz\'s timer starts on the start date.',
       },
       {
-        name: 'ResultId',
+        name: 'deduction_percentage',
         description:
-          'Unique release condition result identifier. Field can be null. (Type: bigint, Size: 8, Key: FK)',
+          'The percentage of a question\'s point value deducted from the quiz attempt score if answered incorrectly. Field can be null.',
       },
       {
-        name: 'IsRetakeIncorrectOnly',
-        description: 'Indicates if the quiz allows Retake Incorrect Only. (Type: bit, Size: 1)',
+        name: 'ai_study_support',
+        description: 'Indicates if D2L Lumi Study Support is enabled for the quiz.',
       },
       {
-        name: 'PagingTypeId',
+        name: 'hide_question_points',
+        description: 'Indicates that the quiz has Hide Question Points enabled.',
+      },
+      {
+        name: 'is_single_session',
         description:
-          'Exposes page break information. Values: NULL=Classic Quiz Creation paging, 0=All questions on one page, 1=One question per page, 2=Page breaks after each section, 3=5 questions per page, 4=10 questions per page. Field can be null. (Type: int, Size: 4)',
+          'Indicates that the quiz is using the Single Brightspace Login Session restriction option. Field can be null.',
+      },
+    ],
+    droppedFields: [
+      {
+        name: 'notification_email',
+        reason:
+          'Removed during deidentification because it may contain direct contact information.',
       },
       {
-        name: 'IsSynchronous',
-        description:
-          "Indicates that a quiz is synchronous. A synchronous quiz's timer starts on the start date. (Type: bit, Size: 1)",
+        name: 'created_by',
+        reason:
+          'Removed during deidentification because it stores the user identifier of the quiz creator.',
       },
       {
-        name: 'DeductionPercentage',
-        description:
-          "The percentage of a question's point value deducted from the quiz attempt score if answered incorrectly. Field can be null. (Type: int, Size: 4)",
-      },
-      {
-        name: 'AIStudySupport',
-        description: 'Indicates if D2L Lumi Study Support is enabled for the quiz. (Type: bit, Size: 1)',
-      },
-      {
-        name: 'HideQuestionPoints',
-        description: 'Indicates that the quiz has Hide Question Points enabled. (Type: bit, Size: 1)',
-      },
-      {
-        name: 'IsSingleSession',
-        description:
-          'Indicates that the quiz is using the Single Brightspace Login Session restriction option. Field can be null. (Type: bit, Size: 1)',
+        name: 'last_modified_by',
+        reason:
+          'Removed during deidentification because it stores the user identifier of the last person who modified the quiz.',
       },
     ],
   },
@@ -753,76 +758,78 @@ const datasetDetails: DatasetDetail[] = [
     title: 'ReleaseConditionsObjects',
     source:
       'https://community.d2l.com/brightspace/kb/articles/4533-release-conditions-data-sets',
+    downloadUrl:
+      'https://community.d2l.com/brightspace/kb/articles/4533-release-conditions-data-sets',
     description:
       'The Release Condition Objects Brightspace Data Set returns all the release conditions (prerequisites and results) that have been created in the organization.',
     dataDescription: [
       'Condition object identifiers and related tool/object mappings.',
       'Rule expression structure using All/Any operators and operands.',
-      'Join keys (for example Id1/Id2) used to connect with activity datasets.',
+      'Join keys (for example id_1/id_2) used to connect with activity datasets.',
     ],
     fields: [
       {
-        name: 'PreRequisiteId',
-        description: 'Unique pre-requisite identifier. (Type: int, Size: 4, Key: PK, FK)',
+        name: 'pre_requisite_id',
+        description: 'Unique pre-requisite identifier.',
       },
       {
-        name: 'ResultId',
-        description: 'Unique result identifier. (Type: int, Size: 4, Key: PK)',
+        name: 'result_id',
+        description: 'Unique result identifier.',
       },
       {
-        name: 'OrgUnitId',
-        description: 'Unique organization identifier. (Type: int, Size: 4, Key: PK, FK)',
+        name: 'org_unit_id',
+        description: 'Unique organization identifier.',
       },
       {
-        name: 'Name',
-        description: 'Pre-requisite condition name. (Type: varchar, Size: 64)',
+        name: 'name',
+        description: 'Pre-requisite condition name.',
       },
       {
-        name: 'IsNegativeCondition',
+        name: 'is_negative_condition',
         description:
-          'Indicates if the condition relies on something not happening. (Type: bit, Size: 1)',
+          'Indicates if the condition relies on something not happening.',
       },
       {
-        name: 'PreRequisiteToolId',
-        description: 'Unique pre-requisite tool identifier. (Type: int, Size: 4, Key: FK)',
+        name: 'pre_requisite_tool_id',
+        description: 'Unique pre-requisite tool identifier.',
       },
       {
-        name: 'Id1',
+        name: 'id_1',
         description:
-          'Unique identifier for the pre-requisite tool. Field can be null. (Type: int, Size: 4)',
+          'Unique identifier for the pre-requisite tool. Field can be null.',
       },
       {
-        name: 'Id2',
+        name: 'id_2',
         description:
-          'Secondary unique identifier for the pre-requisite tool when needed. Field can be null. (Type: int, Size: 4)',
+          'Secondary unique identifier for the pre-requisite tool when needed. Field can be null.',
       },
       {
-        name: 'ResultToolId',
-        description: 'Unique identifier for the result tool. (Type: int, Size: 4, Key: FK)',
+        name: 'result_tool_id',
+        description: 'Unique identifier for the result tool.',
       },
       {
-        name: 'UsesPercentage',
-        description: 'Indicates if the pre-requisite is looking at a grade percentage. (Type: bit, Size: 1)',
+        name: 'uses_percentage',
+        description: 'Indicates if the pre-requisite is looking at a grade percentage.',
       },
       {
-        name: 'OperatorTypeDesc',
+        name: 'operator_type_desc',
         description:
-          'Defines whether all or any of the pre-requisites need to be met. Field can be null. (Type: varchar, Size: 3)',
+          'Defines whether all or any of the pre-requisites need to be met. Field can be null.',
       },
       {
-        name: 'Version',
+        name: 'version',
         description:
-          'Indicates the version of the row. Used to determine which table row occurred first, similar to timestamps in other datasets. (Type: bigint, Size: 8)',
+          'Indicates the version of the row. Used to determine which table row occurred first, similar to timestamps in other datasets.',
       },
       {
-        name: 'Guid1',
+        name: 'guid_1',
         description:
-          'Unique identifier for the pre-requisite tool. For Outcome-based release condition objects, this matches the ObjectId of the outcome. Field can be null. (Type: uniqueidentifier, Size: 16)',
+          'Unique identifier for the pre-requisite tool. For Outcome-based release condition objects, this matches the ObjectId of the outcome. Field can be null.',
       },
       {
-        name: 'Guid2',
+        name: 'guid_2',
         description:
-          'Unique identifier for the pre-requisite tool. For Outcome-based release condition objects, this matches the ScaleLevelId of the outcome. Field can be null. (Type: uniqueidentifier, Size: 16)',
+          'Unique identifier for the pre-requisite tool. For Outcome-based release condition objects, this matches the ScaleLevelId of the outcome. Field can be null.',
       },
     ],
   },
@@ -831,145 +838,150 @@ const datasetDetails: DatasetDetail[] = [
     title: 'RoleDetails',
     source:
       'https://community.d2l.com/brightspace/kb/articles/4534-role-details-data-sets',
+    downloadUrl:
+      'https://community.d2l.com/brightspace/kb/articles/4534-role-details-data-sets',
     description:
       'The Role Details Brightspace Data Set returns a full set of attributes for each role in your organization.',
     dataDescription: [
       'Role identifiers and role naming metadata.',
       'Role behavior flags used across product areas.',
-      'Content-visibility indicators such as ShowInContent.',
+      'Content-visibility indicators such as show_in_content.',
+      'Deidentified for open data release with direct user identifiers removed.',
     ],
     fields: [
       {
-        name: 'RoleId',
-        description: 'Unique role identifier. (Type: int, Size: 4, Key: PK)',
+        name: 'role_id',
+        description: 'Unique role identifier.',
       },
       {
-        name: 'RoleName',
-        description: 'Name of the role. (Type: nvarchar, Size: 120)',
+        name: 'role_name',
+        description: 'Name of the role.',
       },
       {
-        name: 'Description',
-        description: 'Description of the role. Field can be null. (Type: nvarchar, Size: 400)',
+        name: 'description',
+        description: 'Description of the role. Field can be null.',
       },
       {
-        name: 'IsCascading',
-        description: 'Attribute indicating that the role cascades from other roles. (Type: bit, Size: 1)',
+        name: 'is_cascading',
+        description: 'Attribute indicating that the role cascades from other roles.',
       },
       {
-        name: 'InClassList',
-        description: 'Attribute indicating that users with this role appear in class lists. (Type: bit, Size: 1)',
+        name: 'in_class_list',
+        description: 'Attribute indicating that users with this role appear in class lists.',
       },
       {
-        name: 'ClassListRoleName',
+        name: 'class_list_role_name',
         description:
-          'Attribute indicating the role name for users that appear in class lists. Field can be null. (Type: nvarchar, Size: 120)',
+          'Attribute indicating the role name for users that appear in class lists. Field can be null.',
       },
       {
-        name: 'ClassListShowGroups',
+        name: 'class_list_show_groups',
         description:
-          'Attribute indicating that members of this role can see groups consisting of learners in the class list. (Type: bit, Size: 1)',
+          'Attribute indicating that members of this role can see groups consisting of learners in the class list.',
       },
       {
-        name: 'ClassListShowSections',
+        name: 'class_list_show_sections',
         description:
-          'Attribute indicating that members of this role can see sections consisting of learners in the class list. (Type: bit, Size: 1)',
+          'Attribute indicating that members of this role can see sections consisting of learners in the class list.',
       },
       {
-        name: 'ClassListDisplayRole',
+        name: 'class_list_display_role',
         description:
-          'Attribute indicating that members of this role appear in the class list with the role displayed. (Type: bit, Size: 1)',
+          'Attribute indicating that members of this role appear in the class list with the role displayed.',
       },
       {
-        name: 'AccessInactiveCO',
-        description: 'Attribute indicating that the role can access inactive course offerings. (Type: bit, Size: 1)',
+        name: 'access_inactive_co',
+        description: 'Attribute indicating that the role can access inactive course offerings.',
       },
       {
-        name: 'HasSpecialAccess',
-        description: 'Attribute indicating that the role has special access to courses. (Type: bit, Size: 1)',
+        name: 'has_special_access',
+        description: 'Attribute indicating that the role has special access to courses.',
       },
       {
-        name: 'AddToCourseOfferingGroups',
-        description: 'Attribute indicating that the role appears in the course offering group. (Type: bit, Size: 1)',
+        name: 'add_to_course_offering_groups',
+        description: 'Attribute indicating that the role appears in the course offering group.',
       },
       {
-        name: 'CanBeAutoEnrolledIntoGroups',
+        name: 'can_be_auto_enrolled_into_groups',
         description:
-          'Attribute indicating that the role can be automatically enrolled into groups in a class. (Type: bit, Size: 1)',
+          'Attribute indicating that the role can be automatically enrolled into groups in a class.',
       },
       {
-        name: 'AddToCourseOfferingSections',
+        name: 'add_to_course_offering_sections',
         description:
-          'Attribute indicating that users with this role can be added to course offering sections. (Type: bit, Size: 1)',
+          'Attribute indicating that users with this role can be added to course offering sections.',
       },
       {
-        name: 'CanBeAutoEnrolledIntoSections',
+        name: 'can_be_auto_enrolled_into_sections',
         description:
-          'Attribute indicating that users with this role can be automatically enrolled into course sections. (Type: bit, Size: 1)',
+          'Attribute indicating that users with this role can be automatically enrolled into course sections.',
       },
       {
-        name: 'AccessPastCourses',
-        description: 'Attribute indicating that this role can access past courses. (Type: bit, Size: 1)',
+        name: 'access_past_courses',
+        description: 'Attribute indicating that this role can access past courses.',
       },
       {
-        name: 'AccessFutureCourses',
+        name: 'access_future_courses',
         description:
-          'Attribute indicating that this role can access courses that have not yet started. (Type: bit, Size: 1)',
+          'Attribute indicating that this role can access courses that have not yet started.',
       },
       {
-        name: 'SortOrder',
-        description: 'Indicates the sort order for users with this role. (Type: int, Size: 4)',
+        name: 'sort_order',
+        description: 'Indicates the sort order for users with this role.',
       },
       {
-        name: 'ShowInContent',
-        description: 'Indicates that this role should appear in Content. (Type: bit, Size: 1)',
+        name: 'show_in_content',
+        description: 'Indicates that this role should appear in Content.',
       },
       {
-        name: 'ShowInDiscussionAssess',
-        description: 'Indicates that this role should appear in Discussions assessments. (Type: bit, Size: 1)',
+        name: 'show_in_discussion_assess',
+        description: 'Indicates that this role should appear in Discussions assessments.',
       },
       {
-        name: 'ShowInDiscussionStats',
-        description: 'Indicates that this role should appear in Discussions statistics. (Type: bit, Size: 1)',
+        name: 'show_in_discussion_stats',
+        description: 'Indicates that this role should appear in Discussions statistics.',
       },
       {
-        name: 'ShowInGrades',
-        description: 'Indicates that this role should appear in Grades. (Type: bit, Size: 1)',
+        name: 'show_in_grades',
+        description: 'Indicates that this role should appear in Grades.',
       },
       {
-        name: 'ShowInAttendance',
-        description: 'Indicates that this role should appear in Attendance. (Type: bit, Size: 1)',
+        name: 'show_in_attendance',
+        description: 'Indicates that this role should appear in Attendance.',
       },
       {
-        name: 'AllowSelfEnrollInGroups',
-        description: 'Indicates that this role should have permission to self-enroll in groups. (Type: bit, Size: 1)',
+        name: 'allow_self_enroll_in_groups',
+        description: 'Indicates that this role should have permission to self-enroll in groups.',
       },
       {
-        name: 'ShowInRegistration',
+        name: 'show_in_registration',
         description:
-          'Indicates that this role should appear in registration information for a course. (Type: bit, Size: 1)',
+          'Indicates that this role should appear in registration information for a course.',
       },
       {
-        name: 'ShowInUserProgress',
-        description: 'Indicates that this role should appear in User Progress. (Type: bit, Size: 1)',
+        name: 'show_in_user_progress',
+        description: 'Indicates that this role should appear in User Progress.',
       },
       {
-        name: 'RoleAlias',
-        description: 'Indicates the alias for this role. Field can be null. (Type: nvarchar, Size: 120)',
+        name: 'role_alias',
+        description: 'Indicates the alias for this role. Field can be null.',
       },
       {
-        name: 'RoleCode',
+        name: 'role_code',
         description:
-          'Code assigned to each role for mapping to other systems or organizations. Field can be null. (Type: nvarchar, Size: 100)',
+          'Code assigned to each role for mapping to other systems or organizations. Field can be null.',
       },
       {
-        name: 'LastModifiedDate',
+        name: 'last_modified_date',
         description:
-          'Date and time when the role was last modified (UTC). Field can be null. (Type: datetime2, Size: 8)',
+          'Date and time when the role was last modified (UTC). Field can be null.',
       },
+    ],
+    droppedFields: [
       {
-        name: 'DeletedBy',
-        description:
-          'User identifier of the user that deleted the role. Field can be null. (Type: int, Size: 4, Key: FK)',
+        name: 'deleted_by',
+        reason:
+          'Removed during deidentification because it stores the user identifier of the person who deleted the role.',
       },
     ],
   },
@@ -1055,11 +1067,13 @@ export default function Home(): ReactNode {
                     <Link to={dataset.source}>Source documentation</Link>
                   </p>
                   <div className="portal-button-row">
-                    <Link
+                    <a
                       className="button button--primary button--sm"
-                      to={`pathname:///downloads/${dataset.id}.csv`}>
+                      href={dataset.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer">
                       Download {dataset.title}
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}
