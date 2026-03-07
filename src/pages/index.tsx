@@ -987,100 +987,120 @@ const datasetDetails: DatasetDetail[] = [
   },
 ];
 
+const allDatasetsDownloadUrl =
+  'https://github.com/bcit-ltc/data-analysis';
+
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title={siteConfig.title}
       description="Open data portal describing Brightspace datasets for research and analysis.">
-      <main>
-        <section className="portal-hero">
-          <div className="container">
-            <p className="portal-eyebrow">Open Dataset</p>
-            <Heading as="h1" className="portal-hero__title">
-              {siteConfig.title}
-            </Heading>
-            <p className="portal-hero__subtitle">{siteConfig.tagline}</p>
-          </div>
-        </section>
-
-        <section id="about" className="portal-section">
-          <div className="container">
-            <div>
-              <Heading as="h2">About</Heading>
-              <p>
-                This portal will publish an open, privacy-safe version of key
-                Brightspace datasets for learning analytics research,
-                experimentation, and reporting.
-              </p>
-              <p>
-                The data listed below reflects the deidentified open-data
-                schema. Where source fields were removed for privacy, they are
-                listed separately with a rationale.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="datasets" className="portal-section portal-section--alt">
-          <div className="container">
-            <Heading as="h2">Data sets and data descriptions</Heading>
-            <p>
-              Each dataset below includes a short description and a practical
-              data description summary. The source link points to the official
-              Brightspace documentation page used for reference.
-            </p>
-            <div className="portal-card-grid portal-card-grid--single">
-              {datasetDetails.map((dataset) => (
-                <div key={dataset.id} className="portal-card">
-                  <Heading as="h3">{dataset.title}</Heading>
-                  <p>{dataset.description}</p>
-                  <p className="portal-card__meta">Data description</p>
-                  <ul>
-                    {dataset.dataDescription.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
-                  <p className="portal-card__meta">Field descriptions</p>
-                  <ul>
-                    {dataset.fields.map((field) => (
-                      <li key={field.name}>
-                        <strong>{field.name}:</strong> {field.description}
-                      </li>
-                    ))}
-                  </ul>
-                  {dataset.droppedFields && dataset.droppedFields.length > 0 && (
-                    <>
-                      <p className="portal-card__meta">
-                        Dropped fields (deidentification)
-                      </p>
-                      <ul>
-                        {dataset.droppedFields.map((field) => (
-                          <li key={field.name}>
-                            <strong>{field.name}:</strong> {field.reason}
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                  <p className="portal-inline-link">
-                    <Link to={dataset.source}>Source documentation</Link>
-                  </p>
-                  <div className="portal-button-row">
-                    <a
-                      className="button button--primary button--sm"
-                      href={dataset.downloadUrl}
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      Download {dataset.title}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
+      <PortalContent />
     </Layout>
+  );
+}
+
+export function PortalContent(): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <main>
+      <section className="portal-hero">
+        <div className="container">
+          <p className="portal-eyebrow">Open Data</p>
+          <Heading as="h1" className="portal-hero__title">
+            {siteConfig.title}
+          </Heading>
+          <p className="portal-hero__subtitle">{siteConfig.tagline}</p>
+        </div>
+      </section>
+
+      <section id="about" className="portal-section">
+        <div className="container">
+          <div>
+            <Heading as="h2">About</Heading>
+            <p>
+              This portal will publish an open, privacy-safe version of key
+              Brightspace datasets for learning analytics research,
+              experimentation, and reporting.
+            </p>
+            <p>
+              The data listed below reflects the deidentified open-data schema.
+              Where source fields were removed for privacy, they are listed
+              separately with a rationale.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="datasets" className="portal-section portal-section--alt">
+        <div className="container">
+          <Heading as="h2">Data sets and data descriptions</Heading>
+          <p>
+            Each dataset below includes a short description and a practical data
+            description summary. The source link points to the official
+            Brightspace documentation page used for reference.
+          </p>
+          <div className="portal-button-row">
+            <a
+              className="button button--primary"
+              href={allDatasetsDownloadUrl}
+              target="_blank"
+              rel="noopener noreferrer">
+              Download Datasets
+            </a>
+          </div>
+          <div className="portal-card-grid portal-card-grid--single">
+            {datasetDetails.map((dataset) => (
+              <div key={dataset.id} className="portal-card">
+                <span id={dataset.id} className="portal-anchor" aria-hidden="true" />
+                <Heading as="h3">{dataset.title}</Heading>
+                <p>{dataset.description}</p>
+                <p className="portal-card__meta">Data description</p>
+                <ul>
+                  {dataset.dataDescription.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+                <p className="portal-card__meta">Field descriptions</p>
+                <ul>
+                  {dataset.fields.map((field) => (
+                    <li key={field.name}>
+                      <strong>{field.name}:</strong> {field.description}
+                    </li>
+                  ))}
+                </ul>
+                {dataset.droppedFields && dataset.droppedFields.length > 0 && (
+                  <>
+                    <p className="portal-card__meta">
+                      Dropped fields (deidentification)
+                    </p>
+                    <ul>
+                      {dataset.droppedFields.map((field) => (
+                        <li key={field.name}>
+                          <strong>{field.name}:</strong> {field.reason}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                <p className="portal-inline-link">
+                  <Link to={dataset.source}>Source documentation</Link>
+                </p>
+                <div className="portal-button-row">
+                  <a
+                    className="button button--primary button--sm"
+                    href={dataset.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Download {dataset.title}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
