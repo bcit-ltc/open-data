@@ -1,6 +1,7 @@
 import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
@@ -1003,6 +1004,7 @@ export default function Home(): ReactNode {
 
 export function PortalContent(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
+  const schemaImageUrl = useBaseUrl('/img/schema.svg');
   return (
     <main>
       <section className="portal-hero">
@@ -1029,6 +1031,23 @@ export function PortalContent(): ReactNode {
               Where source fields were removed for privacy, they are listed
               separately with a rationale.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="entity-relation" className="portal-section">
+        <div className="container">
+          <Heading as="h2">Entity Relation</Heading>
+          <p>
+            The following entity relationship diagram provides a high-level view
+            of how the open-data entities connect to one another.
+          </p>
+          <div className="portal-schema">
+            <img
+              className="portal-schema__image"
+              src={schemaImageUrl}
+              alt="Entity relationship diagram for the open-data schema"
+            />
           </div>
         </div>
       </section>

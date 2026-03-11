@@ -14,6 +14,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'link',
+      label: 'Entity Relation',
+      href: '/#entity-relation',
+    },
+    {
+      type: 'link',
       label: 'Datasets Overview',
       href: '/#datasets',
     },

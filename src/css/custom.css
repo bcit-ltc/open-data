@@ -173,8 +173,23 @@
   margin-top: 1.5rem;
 }
 
+.portal-schema {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.portal-schema__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Keep anchor targets visible below the fixed navbar/sidebar chrome. */
 #about,
+#entity-relation,
 #datasets,
 .portal-anchor {
   scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
@@ -205,6 +220,7 @@
 
 [data-theme='dark'] .portal-hero__card,
 [data-theme='dark'] .portal-card,
+[data-theme='dark'] .portal-schema,
 [data-theme='dark'] .portal-contact {
   background: #0f172a;
   border-color: #1f2937;
