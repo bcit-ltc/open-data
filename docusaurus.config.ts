@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Open Learning Analytics Dataset',
+  title: 'Open Learning Data',
   tagline: 'An open data portal for learning analytics research.',
   favicon: 'img/favicon.ico',
 
@@ -60,7 +60,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Open Data',
+      title: 'Open Learning Data',
       logo: {
         alt: 'Open Data Logo',
         src: 'img/bcit_rev.png',

@@ -32,7 +32,7 @@
 /* Open data portal layout */
 .portal-hero {
   padding: 5rem 0 4rem;
-  background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 60%);
+  background: linear-gradient(135deg, #ecf9f1 0%, #ffffff 60%);
 }
 
 .portal-hero__grid,
@@ -109,7 +109,7 @@
   letter-spacing: 0.18em;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #6366f1;
+  color: #25c2a0;
   margin-bottom: 0.75rem;
 }
 

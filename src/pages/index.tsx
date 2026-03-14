@@ -33,7 +33,7 @@ const datasetDetails: DatasetDetail[] = [
     source:
       'https://community.d2l.com/brightspace/kb/articles/22812-content-service-data-sets',
     downloadUrl:
-      'https://community.d2l.com/brightspace/kb/articles/22812-content-service-data-sets',
+      'https://bcit365.sharepoint.com/:x:/s/proj-ltc-learninganalytics-team/IQCT78GFCEruRaJnkZHxqOYOAZAJ727VSr6ByC5xsqo9-N4?e=NGamxC',
     description:
       'In the Audio Video Processed Brightspace Data Set, each row represents one completed media processing job. The data set captures events from January 2022 onwards.',
     dataDescription: [
@@ -98,7 +98,7 @@ const datasetDetails: DatasetDetail[] = [
     source:
       'https://community.d2l.com/brightspace/kb/articles/4713-content-data-sets',
     downloadUrl:
-      'https://community.d2l.com/brightspace/kb/articles/4713-content-data-sets',
+      '#',
     description:
       'The Content Objects Brightspace Data Set returns information about content topics and modules created for your org units.',
     dataDescription: [
@@ -118,10 +118,6 @@ const datasetDetails: DatasetDetail[] = [
         description: 'Unique org unit identifier.',
       },
       {
-        name: 'title',
-        description: 'Content title.',
-      },
-      {
         name: 'content_object_type',
         description: 'Content object type.',
       },
@@ -132,11 +128,6 @@ const datasetDetails: DatasetDetail[] = [
       {
         name: 'parent_content_object_id',
         description: 'Parent content object identifier.',
-      },
-      {
-        name: 'location',
-        description:
-          'Location of the content asset. Field can be null.',
       },
       {
         name: 'start_date',
@@ -226,6 +217,16 @@ const datasetDetails: DatasetDetail[] = [
         reason:
           'Removed during deidentification because it stores the user identifier of the person who deleted content.',
       },
+      {
+        name: 'title',
+        reason:
+          'Removed during deidentification because free-text content titles can contain personal identifiers.',
+      },
+      {
+        name: 'location',
+        reason:
+          'Removed during deidentification because free-text content locations can contain personal identifiers.',
+      },
     ],
   },
   {
@@ -234,7 +235,7 @@ const datasetDetails: DatasetDetail[] = [
     source:
       'https://community.d2l.com/brightspace/kb/articles/4525-discussions-data-sets',
     downloadUrl:
-      'https://community.d2l.com/brightspace/kb/articles/4525-discussions-data-sets',
+      'https://bcit365.sharepoint.com/:x:/s/proj-ltc-learninganalytics-team/IQAfcmQzgq5LSrdh5uZXSZ76Ac5gxNQp29CVL0uRhI0e6Vo?e=MZQGEz',
     description:
       'The Discussion Forums Brightspace Data Set returns discussion forums. Results are ordered from newest to oldest.',
     dataDescription: [
@@ -253,13 +254,9 @@ const datasetDetails: DatasetDetail[] = [
         description: 'Unique forum identifier.',
       },
       {
-        name: 'name',
-        description: 'Name of the discussion forum.',
-      },
-      {
-        name: 'description',
+        name: 'has_description',
         description:
-          'Description of the discussion forum. Field can be null.',
+          'Indicates whether the discussion forum has a non-empty description.',
       },
       {
         name: 'must_post_to_participate',
@@ -327,13 +324,23 @@ const datasetDetails: DatasetDetail[] = [
         reason:
           'Removed during deidentification because it stores the user identifier of the person who deleted the forum.',
       },
+      {
+        name: 'name',
+        reason:
+          'Removed during deidentification because free-text forum names can contain personal identifiers.',
+      },
+      {
+        name: 'description',
+        reason:
+          'Removed during deidentification because free-text forum descriptions can contain personal identifiers.',
+      },
     ],
   },
   {
     id: 'gradeobjects',
     title: 'GradeObjects',
     source: 'https://community.d2l.com/brightspace/kb/articles/4527-grades-data-sets',
-    downloadUrl: 'https://community.d2l.com/brightspace/kb/articles/4527-grades-data-sets',
+    downloadUrl: 'https://bcit365.sharepoint.com/:x:/s/proj-ltc-learninganalytics-team/IQClJhgZxqFtSYASwA26mNZhARoRq2EOiiPsY3XB4GHRB3c?e=4qncC3',
     description:
       'The Grade Objects Brightspace Data Set returns a list of the grade objects created for your org units. The data set returns a NULL grade scheme value when the grade item is using the default scheme.',
     dataDescription: [
@@ -355,10 +362,6 @@ const datasetDetails: DatasetDetail[] = [
         name: 'parent_grade_object_id',
         description:
           'Parent grade object identifier. Note: Categories are considered parent grade objects and can be resolved by joining on this field. Field can be null.',
-      },
-      {
-        name: 'name',
-        description: 'Grade object name.',
       },
       {
         name: 'type_name',
@@ -438,11 +441,6 @@ const datasetDetails: DatasetDetail[] = [
         description: 'Last time the grade was modified (UTC).',
       },
       {
-        name: 'short_name',
-        description:
-          'The item or category short name as per the corresponding field in Brightspace. Field can be null.',
-      },
-      {
         name: 'grade_object_type_id',
         description:
           'ID of the grade object type. Values: Numeric=1, Pass/Fail=2, Select box=3, Text=4, Calculated=5, Formula=6, Final Calculated=7, Final Adjusted=8, Category=9.',
@@ -481,6 +479,16 @@ const datasetDetails: DatasetDetail[] = [
         reason:
           'Removed during deidentification because it stores the user identifier of the person who deleted the grade object.',
       },
+      {
+        name: 'name',
+        reason:
+          'Removed during deidentification because free-text grade object names can contain personal identifiers.',
+      },
+      {
+        name: 'short_name',
+        reason:
+          'Removed during deidentification because free-text short names can contain personal identifiers.',
+      },
     ],
   },
   {
@@ -489,7 +497,7 @@ const datasetDetails: DatasetDetail[] = [
     source:
       'https://community.d2l.com/brightspace/kb/articles/4529-organizational-units-data-sets',
     downloadUrl:
-      'https://community.d2l.com/brightspace/kb/articles/4529-organizational-units-data-sets',
+      'https://bcit365.sharepoint.com/:x:/s/proj-ltc-learninganalytics-team/IQD36UPIl_TFRrAH90YR8MWuAbnkUUvTaHoyD7YTWBZJmLk?e=n6kxEG',
     description:
       'The Organizational Units Brightspace Data Set returns details about all org units within your organization. Note: Backfill of historical is_deleted, deleted_date, and recycled_date values is determined by the date/time values in the org_unit audit log.',
     dataDescription: [
@@ -510,14 +518,6 @@ const datasetDetails: DatasetDetail[] = [
         name: 'type',
         description:
           'Org unit type. For example: Group, Section, Semester, Department, etc.',
-      },
-      {
-        name: 'name',
-        description: 'Org unit name. Field can be null.',
-      },
-      {
-        name: 'code',
-        description: 'Org unit code. Field can be null.',
       },
       {
         name: 'start_date',
@@ -561,12 +561,24 @@ const datasetDetails: DatasetDetail[] = [
         description: 'Identifier for the org unit type.',
       },
     ],
+    droppedFields: [
+      {
+        name: 'name',
+        reason:
+          'Removed during deidentification because org unit names may contain personal identifiers depending on naming conventions.',
+      },
+      {
+        name: 'code',
+        reason:
+          'Removed during deidentification because org unit codes may contain personal identifiers depending on naming conventions.',
+      },
+    ],
   },
   {
     id: 'quizobjects',
     title: 'QuizObjects',
     source: 'https://community.d2l.com/brightspace/kb/articles/4532-quizzes-data-sets',
-    downloadUrl: 'https://community.d2l.com/brightspace/kb/articles/4532-quizzes-data-sets',
+    downloadUrl: 'https://bcit365.sharepoint.com/:x:/s/proj-ltc-learninganalytics-team/IQDaogeAQ1KLS5KBJCE6yGQmAd0U-wKIA4LMcjbD62dqeI4?e=h91WFb',
     description:
       'The Quiz Objects Brightspace Data Set returns information about the settings and properties of a quiz.',
     dataDescription: [
@@ -581,17 +593,9 @@ const datasetDetails: DatasetDetail[] = [
         description: 'Unique quiz identifier.',
       },
       {
-        name: 'quiz_name',
-        description: 'Quiz name.',
-      },
-      {
-        name: 'quiz_description',
-        description: 'Description of the quiz. Field can be null.',
-      },
-      {
-        name: 'quiz_category',
+        name: 'has_quiz_description',
         description:
-          'Name of category quiz is assigned to. Field can be null.',
+          'Indicates whether the quiz originally had a non-empty description before deidentification.',
       },
       {
         name: 'is_active',
@@ -730,11 +734,6 @@ const datasetDetails: DatasetDetail[] = [
         name: 'hide_question_points',
         description: 'Indicates that the quiz has Hide Question Points enabled.',
       },
-      {
-        name: 'is_single_session',
-        description:
-          'Indicates that the quiz is using the Single Brightspace Login Session restriction option. Field can be null.',
-      },
     ],
     droppedFields: [
       {
@@ -752,6 +751,21 @@ const datasetDetails: DatasetDetail[] = [
         reason:
           'Removed during deidentification because it stores the user identifier of the last person who modified the quiz.',
       },
+      {
+        name: 'quiz_description',
+        reason:
+          'Removed during deidentification because free-text quiz descriptions can contain personal identifiers.',
+      },
+      {
+        name: 'quiz_name',
+        reason:
+          'Removed during deidentification because free-text quiz names can contain personal identifiers.',
+      },
+      {
+        name: 'quiz_category',
+        reason:
+          'Removed during deidentification because free-text quiz categories can contain personal identifiers.',
+      },
     ],
   },
   {
@@ -760,7 +774,7 @@ const datasetDetails: DatasetDetail[] = [
     source:
       'https://community.d2l.com/brightspace/kb/articles/4533-release-conditions-data-sets',
     downloadUrl:
-      'https://community.d2l.com/brightspace/kb/articles/4533-release-conditions-data-sets',
+      'https://bcit365.sharepoint.com/:x:/s/proj-ltc-learninganalytics-team/IQDq-AiT1wcqQ4qlRObGmzajAeNDdMXTr_OAY2wHo6HaAQk?e=KBo1cY',
     description:
       'The Release Condition Objects Brightspace Data Set returns all the release conditions (prerequisites and results) that have been created in the organization.',
     dataDescription: [
@@ -840,7 +854,7 @@ const datasetDetails: DatasetDetail[] = [
     source:
       'https://community.d2l.com/brightspace/kb/articles/4534-role-details-data-sets',
     downloadUrl:
-      'https://community.d2l.com/brightspace/kb/articles/4534-role-details-data-sets',
+      'https://bcit365.sharepoint.com/:x:/s/proj-ltc-learninganalytics-team/IQBlGMnBbKGvQrnKacduc89gAXn_TaQvauc3gbndVyGHhPY?e=P6aJ2Z',
     description:
       'The Role Details Brightspace Data Set returns a full set of attributes for each role in your organization.',
     dataDescription: [
@@ -851,12 +865,12 @@ const datasetDetails: DatasetDetail[] = [
     ],
     fields: [
       {
-        name: 'role_id',
-        description: 'Unique role identifier.',
+        name: 'org_unit_id',
+        description: 'Unique org unit identifier.',
       },
       {
-        name: 'role_name',
-        description: 'Name of the role.',
+        name: 'role_id',
+        description: 'Unique role identifier.',
       },
       {
         name: 'description',
@@ -984,12 +998,17 @@ const datasetDetails: DatasetDetail[] = [
         reason:
           'Removed during deidentification because it stores the user identifier of the person who deleted the role.',
       },
+      {
+        name: 'role_name',
+        reason:
+          'Removed during deidentification because role names can contain personal identifiers.',
+      },
     ],
   },
 ];
 
 const allDatasetsDownloadUrl =
-  'https://github.com/bcit-ltc/data-analysis';
+  '#';
 
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
@@ -1009,7 +1028,7 @@ export function PortalContent(): ReactNode {
     <main>
       <section className="portal-hero">
         <div className="container">
-          <p className="portal-eyebrow">Open Data</p>
+          <p className="portal-eyebrow">BCIT Teaching and Learning Unit</p>
           <Heading as="h1" className="portal-hero__title">
             {siteConfig.title}
           </Heading>
